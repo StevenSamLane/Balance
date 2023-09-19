@@ -1,23 +1,18 @@
 public class Main {
     public static void main(String[] args) {
 
-        int currentBalance = 205; // Текущая сумма на счету клиента
-        int depositAmount = 1900; // Сумма пополнения счета
-        int bonusThreshold = 1000; // Пороговая сумма для начисления бонусов
-        int bonusRate = 100; // Количество рублей за каждые полные 100 рублей пополнения
-        int bonus = 0; // Количество бонусных рублей
+        int initialAmount = -350; // начальная сумма на счету клиента
+        int topUpAmount = 1500; // сумма пополнения счета
 
-        // Проверяем, превышает ли сумма пополнения порог
-        if (depositAmount > bonusThreshold) {
-            // Рассчитываем количество бонусных рублей
-            bonus = (depositAmount - bonusThreshold) / bonusRate;
+        int bonus = 0; // инициализируем переменную для хранения суммы бонуса
+
+// Проверяем, превысила ли сумма пополнения порог в 1000 рублей
+        if (topUpAmount > 1000) {
+            bonus = topUpAmount / 100; // рассчитываем сумму бонуса
         }
 
-        // Рассчитываем итоговый счет
-        int totalBalance = currentBalance + depositAmount + bonus;
-
-        // Выводим результат на экран
-        System.out.println("Итоговый счет: " + totalBalance + " рублей");
-        System.out.println("Количество бонусных рублей: " + bonus + " рублей");
+        int totalAmount = initialAmount + topUpAmount + bonus; // рассчитываем итоговый счет
+        System.out.println("Итоговая сумма на счету клиента: " + totalAmount + " рублей");
+        System.out.println("Сумма бонуса: " + bonus + " рублей");
     }
 }
